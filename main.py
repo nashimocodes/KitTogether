@@ -4,6 +4,7 @@ from pages.home_page import HOME_PAGE
 
 pages = {
     "/": "<|menu|lov={page_names}|on_action=menu_action|>",
+    "Landing": Html("./static/home.html"),
     "Home": HOME_PAGE,
     "About": "About",
 }
@@ -24,12 +25,6 @@ if __name__ == "__main__":
     gui = Gui(
         pages=pages,
         css_file="./style.css",
-    )
-
-    gui.add_pages(
-        {
-            "Home-2": Html("./static/home.html"),
-        }
     )
 
     gui.run(
