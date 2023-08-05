@@ -2,7 +2,6 @@ from taipy.gui import Gui
 
 from pages.chart import CHART_PAGE
 
-
 pages = {
     "chart": CHART_PAGE,
 }
