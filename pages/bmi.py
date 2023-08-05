@@ -1,6 +1,5 @@
 import pandas as pd
 
-from dateutil.parser import parse
 from taipy.gui import notify
 from datetime import date
 
