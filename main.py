@@ -1,6 +1,6 @@
 from taipy.gui import Gui, notify, navigate, Html
 
-from pages.bmi import BMI_PAGE
+from pages.bmi import BMI_PAGE, bodyMassIndex, weight, height, result  # noqa: F401
 from pages.home_page import HOME_PAGE
 
 pages = {
@@ -21,16 +21,6 @@ def menu_action(state, id, action, payload):
 def dot_it(state):
     print("I'm a dot!")
     notify(state, "warning", "I'm a dot!")
-
-
-weight = 0
-height = 0
-result = 0
-
-
-def bodyMassIndex(state):
-    result = state.weight / (state.height / 100) ** 2
-    state.assign("result", result)
 
 
 if __name__ == "__main__":
