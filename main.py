@@ -1,4 +1,4 @@
-from taipy.gui import Gui, notify, navigate
+from taipy.gui import Gui, notify, navigate, Html
 
 from pages.home_page import HOME_PAGE
 
@@ -21,10 +21,18 @@ def dot_it(state):
 
 
 if __name__ == "__main__":
-    Gui(
+    gui = Gui(
         pages=pages,
         css_file="./style.css",
-    ).run(
+    )
+
+    gui.add_pages(
+        {
+            "Home-2": Html("./static/home.html"),
+        }
+    )
+
+    gui.run(
         use_reloader=True,
         title="GG",
     )
