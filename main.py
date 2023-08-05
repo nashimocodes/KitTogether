@@ -1,7 +1,18 @@
 from taipy.gui import Gui, notify, navigate, Html
+from dotenv import load_dotenv
 
-from pages.bmi import BMI_PAGE, bodyMassIndex, weight, height, result  # noqa: F401
+from pages.bmi import (
+    BMI_PAGE,
+    bodyMassIndex,
+    weight,
+    height,
+    date_input,
+    result,
+)  # noqa: F401
 from pages.home_page import HOME_PAGE
+from lib.database.init import client  # noqa: F401
+
+load_dotenv()
 
 pages = {
     "/": "<|menu|lov={page_names}|on_action=menu_action|>",
@@ -26,6 +37,7 @@ def dot_it(state):
 if __name__ == "__main__":
     gui = Gui(
         css_file="./style.css",
+        env_filename=".env",
     )
 
     gui.add_pages(pages)

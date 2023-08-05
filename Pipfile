@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 taipy = "*"
 black = "*"
+pymongo = "*"
+python-dotenv = "*"
 
 [dev-packages]
 black = "*"
