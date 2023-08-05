@@ -1,3 +1,5 @@
+import pandas as pd
+
 from dateutil.parser import parse
 from taipy.gui import notify
 from datetime import date
@@ -20,11 +22,8 @@ BMI_PAGE = """
 def get_bmi_data():
     collection = get_collection("bmi")
     data = list(collection.find({}))
-    for item in data:
-        item.pop("_id")
-        item["date"] = parse(item["date"])
 
-    return data
+    return pd.DataFrame(data)
 
 
 date_input = date.today()
@@ -32,7 +31,6 @@ weight = 0
 height = 0
 result = 0
 bmi_data = get_bmi_data()
-print(bmi_data)
 
 
 def bodyMassIndex(state):
