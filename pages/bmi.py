@@ -8,10 +8,20 @@ from lib.database.init import get_collection
 BMI_PAGE = """
 ### Your weight info needs to be entered.
 
-<|{weight}|number|label=weight(kg)|>
-<|{height}|number|label=height(cm)|>
-<|{date_input}|date|hover_text=Date|>
+<br />
+
+<|layout|gap=1 rem|columns=3 3 3 3|
+
+<|{weight}|number|label=Weight (KG)|class_name=w-full|>
+
+<|{height}|number|label=Height (CM)|>
+
+<|{date_input}|date|hover_text=Date|format=|>
+
 <|{submit}|button|label=submit|on_action=bodyMassIndex|>
+
+|>
+
 <|{result}|text|>
 
 # <|{bmi_data}|chart|x=date|y=bmi|>
