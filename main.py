@@ -1,9 +1,16 @@
 from taipy.gui import Gui, notify, navigate, Html
 from dotenv import load_dotenv
 
-from pages.bmi import BMI_PAGE, bodyMassIndex, weight, height, result  # noqa: F401
+from pages.bmi import (
+    BMI_PAGE,
+    bodyMassIndex,
+    weight,
+    height,
+    date_input,
+    result,
+)  # noqa: F401
 from pages.home_page import HOME_PAGE
-from lib.database.init import client
+from lib.database.init import client  # noqa: F401
 
 load_dotenv()
 

@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 uri = os.getenv("MONGO_URI")
-print(uri)
 client = MongoClient(uri, server_api=ServerApi("1"))
 
 try:
