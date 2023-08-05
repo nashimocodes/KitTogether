@@ -1,8 +1,10 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "ms-python.black-formatter",
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+  "[css]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
-  "python.formatting.provider": "none"
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
