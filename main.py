@@ -5,6 +5,8 @@ from pages.bmi import *
 from pages.home_page import HOME_PAGE
 from lib.database.init import client  # keep
 
+from pages.Edu import DataVisual, get_data
+
 load_dotenv()
 
 pages = {
@@ -13,6 +15,7 @@ pages = {
     "Home": HOME_PAGE,
     "BMI": BMI_PAGE,  # noqa: F405
     "About": "About",
+    "DataVisual": DataVisual,
 }
 page_names = [page for page in pages.keys() if page != "/"]
 
