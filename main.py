@@ -23,9 +23,10 @@ def dot_it(state):
 
 if __name__ == "__main__":
     gui = Gui(
-        pages=pages,
         css_file="./style.css",
     )
+
+    gui.add_pages(pages)
 
     gui.run(
         use_reloader=True,
