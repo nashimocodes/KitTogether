@@ -20,6 +20,22 @@ def dot_it(state):
     print("I'm a dot!")
     notify(state, "warning", "I'm a dot!")
 
+from pages.chart import weightInfo
+
+
+weight = 0
+height = 0
+result = 0
+
+
+def bodyMassIndex(state):
+    result = state.weight / (state.height / 100) ** 2
+    state.assign("result", result)
+
+
+pages = {
+    "chart": weightInfo,
+}
 
 if __name__ == "__main__":
     gui = Gui(
