@@ -72,6 +72,7 @@ docs/_build/
 
 # PyBuilder
 .pybuilder/
+magik/
 target/
 
 # Jupyter Notebook
