@@ -1,4 +1,4 @@
-weightInfo = """
+BMI_PAGE = """
 
 ### Your weight info needs to be entered.
 

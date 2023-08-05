@@ -1,11 +1,13 @@
 from taipy.gui import Gui, notify, navigate, Html
 
+from pages.bmi import BMI_PAGE
 from pages.home_page import HOME_PAGE
 
 pages = {
     "/": "<|menu|lov={page_names}|on_action=menu_action|>",
     "Landing": Html("./static/home.html"),
     "Home": HOME_PAGE,
+    "BMI": BMI_PAGE,
     "About": "About",
 }
 page_names = [page for page in pages.keys() if page != "/"]
@@ -20,8 +22,6 @@ def dot_it(state):
     print("I'm a dot!")
     notify(state, "warning", "I'm a dot!")
 
-from pages.chart import weightInfo
-
 
 weight = 0
 height = 0
@@ -32,10 +32,6 @@ def bodyMassIndex(state):
     result = state.weight / (state.height / 100) ** 2
     state.assign("result", result)
 
-
-pages = {
-    "chart": weightInfo,
-}
 
 if __name__ == "__main__":
     gui = Gui(
