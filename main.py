@@ -5,7 +5,7 @@ from pages.bmi import *
 from pages.home_page import HOME_PAGE
 from lib.database.init import client  # keep
 
-from pages.Edu import DataVisual, get_data
+from pages.Edu import *
 
 load_dotenv()
 
