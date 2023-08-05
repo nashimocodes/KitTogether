@@ -1,6 +1,7 @@
+from dateutil.parser import parse
+from taipy.gui import notify
 from datetime import date
 
-from taipy.gui import notify
 from lib.database.init import get_collection
 
 BMI_PAGE = """
@@ -11,13 +12,27 @@ BMI_PAGE = """
 <|{date_input}|date|hover_text=Date|>
 <|{submit}|button|label=submit|on_action=bodyMassIndex|>
 <|{result}|text|>
+
+# <|{bmi_data}|chart|x=date|y=bmi|>
 """
+
+
+def get_bmi_data():
+    collection = get_collection("bmi")
+    data = list(collection.find({}))
+    for item in data:
+        item.pop("_id")
+        item["date"] = parse(item["date"])
+
+    return data
 
 
 date_input = date.today()
 weight = 0
 height = 0
 result = 0
+bmi_data = get_bmi_data()
+print(bmi_data)
 
 
 def bodyMassIndex(state):

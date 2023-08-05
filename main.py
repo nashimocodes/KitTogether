@@ -1,16 +1,9 @@
 from taipy.gui import Gui, notify, navigate, Html
 from dotenv import load_dotenv
 
-from pages.bmi import (
-    BMI_PAGE,
-    bodyMassIndex,
-    weight,
-    height,
-    date_input,
-    result,
-)  # noqa: F401
+from pages.bmi import *
 from pages.home_page import HOME_PAGE
-from lib.database.init import client  # noqa: F401
+from lib.database.init import client  # keep
 
 load_dotenv()
 
@@ -18,7 +11,7 @@ pages = {
     "/": "<|menu|lov={page_names}|on_action=menu_action|>",
     "Landing": Html("./static/home.html"),
     "Home": HOME_PAGE,
-    "BMI": BMI_PAGE,
+    "BMI": BMI_PAGE,  # noqa: F405
     "About": "About",
 }
 page_names = [page for page in pages.keys() if page != "/"]
