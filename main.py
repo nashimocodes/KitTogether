@@ -20,14 +20,9 @@ pages = {
 page_names = [page for page in pages.keys() if page != "/"]
 
 
-def menu_action(state, id, action, payload):
+def menu_action(state, _id, _action, payload):
     page = payload["args"][0]
     navigate(state, page)
-
-
-def dot_it(state):
-    print("I'm a dot!")
-    notify(state, "warning", "I'm a dot!")
 
 
 if __name__ == "__main__":
