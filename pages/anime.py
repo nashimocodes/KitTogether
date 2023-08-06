@@ -16,10 +16,12 @@ ANIME_PAGE = Markdown(
 <br />
 
 <|{anime_input}|input|>
-<|Click|button|on_action=on_recommendation_click|>
 
-<|{data_computed}|chart|type=bar|x=Recommendation|y=Similarity Score|>
-"""
+<|Click|button|on_action=on_recommendation_click|>
+<br />
+<br />
+<|{data_computed}|chart|type=bar|x=Recommendation|y=Similarity Score|title=Anime Recommendation using Taipy Core|>
+"""  # noqa: E501
 )
 
 anime_df = pd.read_csv("./dataset/anime.csv")
