@@ -39,5 +39,5 @@ if __name__ == "__main__":
 
     gui.run(
         use_reloader=True,
-        title="title",
+        title="KitTogether",
     )
