@@ -1,6 +1,7 @@
 from taipy.gui import Gui, notify, navigate, Html
 from dotenv import load_dotenv
-from pages.anime import ANIME_PAGE, on_recommendation_click, data_computed
+
+# from pages.anime import ANIME_PAGE, on_recommendation_click, data_computed
 
 from pages.bmi import *
 from pages.home_page import HOME_PAGE
@@ -18,6 +19,7 @@ pages = {
     "About": "About",
     "Crimes": CRIME_PAGE,  # noqa: F405
     # "AnimeRecommendation": ANIME_PAGE,  # noqa: F405
+    "Articles": Html("./static/articles.html"),
 }
 page_names = [page for page in pages.keys() if page != "/"]
 
