@@ -15,9 +15,7 @@ load_dotenv()
 pages = {
     "/": "<|menu|lov={page_names}|on_action=menu_action|>",
     "Landing": Html("./static/home.html"),
-    "Home": HOME_PAGE,
     "BMI": BMI_PAGE,  # noqa: F405
-    "About": "About",
     "Crimes": CRIME_PAGE,  # noqa: F405
     # "AnimeRecommendation": ANIME_PAGE,  # noqa: F405
     "Diabetes": DIABETES_PAGE,
