@@ -17,7 +17,7 @@ pages = {
     "BMI": BMI_PAGE,  # noqa: F405
     "About": "About",
     "Crimes": CRIME_PAGE,  # noqa: F405
-    "AnimeRecommendation": ANIME_PAGE,  # noqa: F405
+    # "AnimeRecommendation": ANIME_PAGE,  # noqa: F405
 }
 page_names = [page for page in pages.keys() if page != "/"]
 
