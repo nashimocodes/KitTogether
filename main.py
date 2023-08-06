@@ -1,6 +1,6 @@
 from taipy.gui import Gui, notify, navigate, Html
 from dotenv import load_dotenv
-from pages.anime import ANIME_PAGE, on_recommendation_click
+from pages.anime import ANIME_PAGE, on_recommendation_click, data_computed
 
 from pages.bmi import *
 from pages.home_page import HOME_PAGE

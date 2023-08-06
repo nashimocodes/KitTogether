@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from taipy.gui import Markdown, notify
+from taipy.gui import Markdown, notify, State
 
 from datetime import datetime
 from sklearn.preprocessing import MultiLabelBinarizer
@@ -8,6 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics.pairwise import linear_kernel
 
 anime_input = ""
+data_computed = pd.DataFrame(columns=["Name", "index"])
 
 ANIME_PAGE = Markdown(
     """
@@ -16,6 +17,8 @@ ANIME_PAGE = Markdown(
 
 <|{anime_input}|input|>
 <|Click|button|on_action=on_recommendation_click|>
+
+<|{data_computed}|chart|type=bar|x=Name|y=index|>
 """
 )
 
@@ -238,17 +241,28 @@ indices = pd.Series(
 ).drop_duplicates()
 
 
-def get_recommendations(title, cosine_sim):
+def get_recommendations(title, cosine_sim) -> pd.core.series.Series:
     idx = indices[title]
     sim_scores = list(enumerate(cosine_sim[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
     sim_scores = sim_scores[1:11]
     anime_indices = [i[0] for i in sim_scores]
 
-    return anime_features["Name"].iloc[anime_indices]
+    something = anime_features["Name"].iloc[anime_indices]
+    return something
 
 
-def on_recommendation_click(state):
-    recommendation = get_recommendations(state.anime_input, cosine_sim_content)
-    print(recommendation)
-    notify(state, "info", "Recommendation Clicked", "You clicked on a recommendation")
+def on_recommendation_click(state: State):
+    try:
+        recommendation = get_recommendations(state.anime_input, cosine_sim_content)
+        df = recommendation.to_frame().reset_index()
+        df.sort_values(
+            by="index",
+            inplace=True,
+            ascending=False,
+        )
+        print(df.head())
+        state.assign("data_computed", df)
+        notify(state, "info", "Recommendations generated!")
+    except:  # noqa: E722
+        notify(state, "error", "Anime not found!")
