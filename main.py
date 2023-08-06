@@ -20,6 +20,8 @@ pages = {
     "AnimeRecommendation": ANIME_PAGE,  # noqa: F405
     "Diabetes": DIABETES_PAGE,
     "Articles": Html("./static/articles.html"),
+    "C": "Hello",
+    "T": "Hello",
 }
 page_names = [page for page in pages.keys() if page != "/"]
 
