@@ -20,6 +20,7 @@ pages = {
     "AnimeRecommendation": ANIME_PAGE,  # noqa: F405
     "Diabetes": DIABETES_PAGE,
     "Articles": Html("./static/articles.html"),
+    "AnonymousBoard": "AnonymousBoard",
     "C": "Hello",
     "T": "Hello",
 }
