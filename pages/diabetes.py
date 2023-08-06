@@ -9,11 +9,14 @@ DIABETES_PAGE = Markdown(
 <|button|label=Load Data|on_action=load_diabetes_dataset|>
 <br />
 <br />
-<|{diabetes_dataset}|chart|type=bar|x=BMI|y=outcome|>
+<|{diabetes_dataset}|chart|type=bar|x=BMI|y=outcome|title=BMI v/s Diagnosis|>
+<br />
+<br />
+<|{diabetes_dataset}|chart|type=bar|x=BMI|y=Glucose|title=Glucose v/s BMI|>
 """
 )
 
-diabetes_dataset = pd.DataFrame(columns=["BMI", "outcome"])
+diabetes_dataset = pd.DataFrame(columns=["BMI", "Glucose", "outcome"])
 
 
 def load_diabetes_dataset(state: State):
