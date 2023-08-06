@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics.pairwise import linear_kernel
 
 anime_input = ""
-data_computed = pd.DataFrame(columns=["Name", "index"])
+data_computed = pd.DataFrame(columns=["Recommendation", "Similarity Score"])
 
 ANIME_PAGE = Markdown(
     """
@@ -18,7 +18,7 @@ ANIME_PAGE = Markdown(
 <|{anime_input}|input|>
 <|Click|button|on_action=on_recommendation_click|>
 
-<|{data_computed}|chart|type=bar|x=Name|y=index|>
+<|{data_computed}|chart|type=bar|x=Recommendation|y=Similarity Score|>
 """
 )
 
@@ -261,7 +261,10 @@ def on_recommendation_click(state: State):
             inplace=True,
             ascending=False,
         )
-        print(df.head())
+        df.rename(
+            columns={"index": "Similarity Score", "Name": "Recommendation"},
+            inplace=True,
+        )
         state.assign("data_computed", df)
         notify(state, "info", "Recommendations generated!")
     except:  # noqa: E722
