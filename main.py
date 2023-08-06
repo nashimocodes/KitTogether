@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 # from pages.anime import ANIME_PAGE, on_recommendation_click, data_computed
 
 from pages.bmi import *
+from pages.diabetes import DIABETES_PAGE, diabetes_dataset, load_diabetes_dataset
 from pages.home_page import HOME_PAGE
 from lib.database.init import client  # keep
 
@@ -19,6 +20,7 @@ pages = {
     "About": "About",
     "Crimes": CRIME_PAGE,  # noqa: F405
     # "AnimeRecommendation": ANIME_PAGE,  # noqa: F405
+    "Diabetes": DIABETES_PAGE,
     "Articles": Html("./static/articles.html"),
 }
 page_names = [page for page in pages.keys() if page != "/"]
