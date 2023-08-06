@@ -6,9 +6,12 @@
     "words": [
         "Aaishu",
         "barmode",
+        "Binarizer",
         "dateutil",
         "dotenv",
         "hovermode",
+        "iloc",
+        "sklearn",
         "taipy"
     ],
     "ignoreWords": [],
