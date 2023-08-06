@@ -48,6 +48,8 @@ def bodyMassIndex(state):
     result = state.weight / (state.height / 100) ** 2
     state.assign("result", result)
     db(state, state.date_input, state.weight, state.height, result)
+    new_bmi_data = get_bmi_data()
+    state.assign("bmi_data", new_bmi_data)
 
 
 def db(state, date_input: date, weight: int, height: int, bmi: int):
